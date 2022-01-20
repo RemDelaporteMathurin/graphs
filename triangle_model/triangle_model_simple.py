@@ -14,7 +14,7 @@ phi_imp = 1
 R_p = 2
 D = 1
 
-Rds = [5, 6, 7]
+Rds = [5, 6, 7, 10, 20, 30]
 
 cmax = c_0 + phi_imp*R_p/D
 
@@ -24,6 +24,7 @@ def make_profile(R_d):
     y = [c_0, cmax, 0, 0]
     return x, y
 
+plt.figure(figsize=(6.4, 3))
 
 for i, Rd in enumerate(Rds):
     x, y = make_profile(Rd)
@@ -34,11 +35,11 @@ for i, Rd in enumerate(Rds):
     plt.plot(x, y, c="black", linestyle=linestyle)
 
 
-plt.hlines(cmax, 0, size*0.25, linestyle="dashed", color="grey")
-plt.vlines(R_p, 0, cmax*1.05, linestyle="dashed", color="grey")
+plt.hlines(cmax, 0, size*0.25, linestyle="dashed", color="grey", alpha=0.7)
+plt.vlines(R_p, 0, cmax*1.05, linestyle="dashed", color="grey", alpha=0.7)
 
 plt.ylim(bottom=0, top=cmax*1.2)
-plt.xlim(left=0)
+plt.xlim(left=0, right=8)
 plt.xticks([0, R_p, Rds[0]], [0, "$R_p$", "$R_d$"])
 plt.yticks([0, c_0, cmax], [0, "$c_0$", r"$c_\mathrm{max}$"])
 
@@ -59,5 +60,5 @@ plt.annotate(r"$\varphi_\mathrm{recomb}$", xy=(R_p - 1.5, cmax*1.15))
 
 plt.gca().spines['right'].set_visible(False)
 plt.gca().spines['top'].set_visible(False)
-
+plt.tight_layout()
 plt.show()
