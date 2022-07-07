@@ -68,7 +68,7 @@ plt.bar(x, height=y, alpha=0.5)
 
 plt.hlines(gaussian(mu - sigma, mu, sigma), mu - sigma, mu + sigma, color="black")
 plt.annotate(
-    "$\sigma$", (mu, gaussian(mu - sigma, mu, sigma)), va="bottom", ha="center"
+    "$2 \sigma$", (mu, gaussian(mu - sigma, mu, sigma)), va="bottom", ha="center"
 )
 
 plt.xticks([mu], ["$\mu$"])
